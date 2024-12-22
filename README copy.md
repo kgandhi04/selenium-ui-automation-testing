@@ -45,34 +45,74 @@ selenium-ui-automation-testing/
 ├── reports/                     # HTML test reports
 ├── requirements.txt             # Python dependencies
 └── README.md                    # Project documentation
-
-
-# Installation Instructions
-
-Follow these steps to set up and run the Selenium UI Automation Testing framework on your local machine.
+```
 
 ---
 
-## Prerequisites
+## 🛠️ Installation Instructions
 
-1. **Python 3.7 or higher**: Ensure Python is installed on your system.
-   - Download: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-   
-2. **Google Chrome**: Install the latest version of Google Chrome.
-   - Download: [https://www.google.com/chrome/](https://www.google.com/chrome/)
+### Prerequisites
+1. Install **Python 3.7+**.
+2. Install **Google Chrome** and the corresponding **ChromeDriver** for Selenium.
+   - Download ChromeDriver: [https://chromedriver.chromium.org/](https://chromedriver.chromium.org/)
 
-3. **ChromeDriver**: Download the ChromeDriver compatible with your Chrome version.
-   - Download: [https://chromedriver.chromium.org/](https://chromedriver.chromium.org/)
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/selenium-ui-automation-testing.git
+   cd selenium-ui-automation-testing
+   ```
 
-4. **Git**: Ensure Git is installed to clone the repository.
-   - Download: [https://git-scm.com/](https://git-scm.com/)
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Configure the test environment:
+   - Update `config/config.yaml` with the desired base URL and language settings.
 
 ---
 
-## Step-by-Step Installation
+## ▶️ How to Run Tests
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/kgandhi04/selenium-ui-automation-testing.git
-cd selenium-ui-automation-testing
+1. Run all tests and generate an HTML report:
+   ```bash
+   pytest src/tests/ --html=reports/report.html
+   ```
 
+2. Run a specific test:
+   ```bash
+   pytest src/tests/test_search.py
+   ```
+
+3. View the HTML report:
+   - Open `reports/report.html` in your browser.
+
+---
+
+## 🌟 Example Test Case
+
+### Search Functionality Test
+The following test checks if searching for "Python (programming language)" on Wikipedia returns the correct page:
+
+```python
+def test_search_functionality(self):
+    self.home_page.load("https://www.wikipedia.org")
+    self.home_page.search("Python (programming language)")
+    assert "Python" in self.driver.title
+```
+
+---
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+---
+
+## 📄 License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+---
+
+## 🙋‍♂️ Contact
+For any questions or feedback, please reach out to [your-email@example.com](mailto:your-email@example.com).
